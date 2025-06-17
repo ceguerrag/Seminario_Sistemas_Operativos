@@ -18,6 +18,9 @@ En esta tarea, se utilizó **Webmin** para instalar y configurar el servicio **N
 
 - Se ingresó al servidor mediante Webmin con credenciales administrativas.
 
+![image](https://github.com/user-attachments/assets/ec0ad286-e014-4600-ab8e-ef4b8b0b8f13)
+![image](https://github.com/user-attachments/assets/675c2520-1f15-4af8-a22c-89f12eef1902)
+
 ## 2. Verificación del sistema operativo 🖥️
 
 - Se verificó que el sistema operativo es **Ubuntu 22.04.5 LTS** desde el panel.
@@ -26,18 +29,23 @@ En esta tarea, se utilizó **Webmin** para instalar y configurar el servicio **N
 
 - Se accedió al módulo:  
   `Tools > Command Shell`  
-  ![imagen]()
+
+  ![image](https://github.com/user-attachments/assets/778b0383-0267-4fb0-bc08-d1ff533005ce)
 
 - Se ejecutó el siguiente comando combinado:
 
   ```bash
   apt update && apt install ntp -y
 
+![image](https://github.com/user-attachments/assets/47899565-eb5c-4fdb-80d2-251e889d3b39)
+
 Durante la instalación, se eliminó automáticamente el servicio `systemd-timesyncd`, que viene por defecto, y fue reemplazado por `ntpd`.
 
 ## 4. Verificación del estado del servicio ✅
 
 - Se verificó que el servicio estuviera activo.
+
+![image](https://github.com/user-attachments/assets/127ece56-3688-453b-94cb-3c5ff2ea9a98)
 
   El resultado indicó que el servicio estaba **activo (running)** correctamente.
 
@@ -67,6 +75,8 @@ Durante la instalación, se eliminó automáticamente el servicio `systemd-times
 
 - Se hizo clic en **Sync and Apply** para guardar la configuración.
 
+![image](https://github.com/user-attachments/assets/d129a149-7bb4-4b7e-8c4e-1fc7c50bd501)
+
 ## 6. Intento de sincronización manual desde Webmin ⚠️
 
 - Al presionar el botón para sincronizar la hora manualmente, apareció el siguiente error: adj_systime: Operation not permitted
@@ -78,6 +88,8 @@ Durante la instalación, se eliminó automáticamente el servicio `systemd-times
 
   ```bash
   timedatectl status
+
+![image](https://github.com/user-attachments/assets/246579cd-bf45-4260-af3f-232bc8e3d5d5)
 
 Resultado obtenido: 
   
@@ -91,6 +103,8 @@ Esto es correcto, ya que timedatectl no detecta ntpd, pero confirma que el siste
       ntpd -p
 
 - Se mostró una lista de servidores NTP activos.
+
+![image](https://github.com/user-attachments/assets/3fa3541e-59aa-45eb-ab1b-d2983edf23c8)
 
 - El servidor con asterisco `*` indica el servidor **actualmente en uso**.
 
